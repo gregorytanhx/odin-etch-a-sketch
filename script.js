@@ -1,11 +1,11 @@
 
 
-function createGrid() {
+function createGrid(size) {
     const container = document.querySelector('.container');
-    for (let i = 0; i < 4; i++) {
+    for (let i = 0; i < size; i++) {
         const row = document.createElement("div");
         row.classList.add("row");
-        for (let j = 0; j < 4; j++) {
+        for (let j = 0; j < size; j++) {
             const div = document.createElement('div');
             div.classList.add('gridSquare');
             row.appendChild(div);
@@ -15,4 +15,4 @@ function createGrid() {
     }
 }
 
-createGrid();
+createGrid(16);
