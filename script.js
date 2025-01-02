@@ -15,15 +15,9 @@ function hoverFunction(event) {
 
 function mouseDown(event) {
     draw = true;
-    setTimeout(function () {
-        if (mouseIsDown) {
-
-        }
-    }, 200);
 }
 
 function mouseUp(event) {
-    clearTimeout(idTimeout);
     draw = false;
 }
 
@@ -37,7 +31,10 @@ function createGrid(size) {
         for (let j = 0; j < size; j++) {
             const div = document.createElement('div');
             div.classList.add('gridSquare');
-
+            // size of each square depends on grid size
+            div.style.width =  String(Math.ceil(600 / size)) + "px";
+            div.style.height = String(Math.ceil(600 / size)) + 'px';
+            console.log (div.style.width);
             div.addEventListener('mouseover', hoverFunction);
             div.style.background = "white";
             row.appendChild(div);
@@ -48,13 +45,13 @@ function createGrid(size) {
 
 function resetGrid(params) {
     let gridSize = document.getElementById('grid-size').value;
+    console.log(gridSize);
     const container = document.querySelector('.container');
     container.innerHTML = "";
     createGrid(gridSize);
-    alert("hello");
 }
 
 createGrid(16);
-const gridButton = document.querySelector(".generator");
+const gridButton = document.querySelector(".gridBtn");
 gridButton.addEventListener("click", resetGrid);
 
