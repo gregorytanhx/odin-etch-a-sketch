@@ -1,0 +1,15 @@
+
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
+.row {
+    display: flex;
+}
+
+.gridSquare {
+    width: 50px;
+    height: 50px;
+    border: 1px solid black;
+}
