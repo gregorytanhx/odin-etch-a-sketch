@@ -14,6 +14,9 @@ function hoverFunction(event) {
 }
 
 function mouseDown(event) {
+    // setTimeOut(function name(params) {
+    //     console.log('mouse down');
+    // },50);
     draw = true;
 }
 
@@ -44,12 +47,24 @@ function createGrid(size) {
 }
 
 function resetGrid(params) {
-    let gridSize = document.getElementById('grid-size').value;
+    let gridSize = document.getElementById('grid-slider').value;
     console.log(gridSize);
     const container = document.querySelector('.container');
     container.innerHTML = "";
     createGrid(gridSize);
 }
+
+slider = document.getElementById('grid-slider');
+slider.addEventListener("input", function(e) {
+    let gridSize = document.getElementById('grid-slider').value;
+    // display value
+    gridText = document.querySelector('.gridsize-text');
+    gridText.innerHTML = gridSize + "x" + gridSize;
+});
+
+let gridSize = document.getElementById('grid-slider').value;
+gridText = document.querySelector('.gridsize-text');
+gridText.innerHTML = gridSize + 'x' + gridSize;
 
 createGrid(16);
 const gridButton = document.querySelector(".gridBtn");

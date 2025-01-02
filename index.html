@@ -28,17 +28,11 @@
     <div class="content">
         <div class="settings">
             <div class="colorpicker-container">
-                <label for="colorpicker">Color</label>
                 <input type="color" id="colorpicker" name="color">
             </div>
             <div class="gridsize-container">
-                <label for="grid-size">Grid Size</label>
-                <select id="grid-size" name="gridSize">
-                    <option value="16">16x16</option>
-                    <option value="32">32x32</option>
-                    <option value="64">64x64</option>
-                    <option value="128">96x96</option>
-                </select>
+                <div class="gridsize-text"></div>
+                <input type="range" min="10" max="100" class="slider" id="grid-slider">
                 <button class="gridBtn">Create New Grid</button>
             </div>
         </div>
@@ -46,6 +40,8 @@
         <div class="border">
             <div class="container"></div>
         </div>
+
+        <div></div>
 
 
     </div>
