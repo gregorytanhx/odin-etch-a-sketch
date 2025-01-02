@@ -1,18 +1,29 @@
 var color = '#D2691E';
 var draw = false;
+var idTimeout;
+
+function getColor() {
+    return document.getElementById("colorpicker").value;
+}
 
 function hoverFunction(event) {
     // changes grid square when mouse hovers over it
     if (draw) {
-        event.target.style.background = color;
+        event.target.style.background = getColor();
     }
 }
 
 function mouseDown(event) {
     draw = true;
+    setTimeout(function () {
+        if (mouseIsDown) {
+
+        }
+    }, 200);
 }
 
 function mouseUp(event) {
+    clearTimeout(idTimeout);
     draw = false;
 }
 
@@ -28,11 +39,22 @@ function createGrid(size) {
             div.classList.add('gridSquare');
 
             div.addEventListener('mouseover', hoverFunction);
-
+            div.style.background = "white";
             row.appendChild(div);
         }
         container.appendChild(row);
     }
 }
 
+function resetGrid(params) {
+    let gridSize = document.getElementById('grid-size').value;
+    const container = document.querySelector('.container');
+    container.innerHTML = "";
+    createGrid(gridSize);
+    alert("hello");
+}
+
 createGrid(16);
+const gridButton = document.querySelector(".generator");
+gridButton.addEventListener("click", resetGrid);
+
