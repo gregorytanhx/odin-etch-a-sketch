@@ -66,7 +66,8 @@ let gridSize = document.getElementById('grid-slider').value;
 gridText = document.querySelector('.gridsize-text');
 gridText.innerHTML = gridSize + 'x' + gridSize;
 
-createGrid(16);
+createGrid(gridSize);
+
 const gridButton = document.querySelector(".gridBtn");
 gridButton.addEventListener("click", resetGrid);
 
